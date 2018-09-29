@@ -1,20 +1,40 @@
-let arrayProductos = [];
+var convertor={
+    convertir:(medida,unidad,conver,tipo)=>{
+        if(tipo=='L'){
+            if(unidad== 'm' && conver== 'cm')
+                return medida*100;
+            else if(unidad== 'cm' && conver== 'm')
+                return medida/100;
+            else if(unidad=='km' && conver=='m')
+                return medida*1000;
+            else if(unidad=='m'&& conver=='km')
+                return medida/1000;
+            else if(unidad=='ft' && conver=='m')
+                return medida*0.3048;
+            else if(unidad=='ft' && conver=='m')
+                return medida/0.3048;
+            else
+                return "no se reconoce la unidad o no se puede realizar esa conversion";
 
-function addproducto(codigo, descrip, tipo, precio_compra, precio_venta, stock) {
-    arrayProductos.push({ codigo, descrip, tipo, precio_compra, precio_venta, stock })
-}
+        }
 
-addproducto(2020, "gomitas ricas", "dulces", 10, 15, 6);
-addproducto(2021, "chocobitos culeros", "dulces", 20, 35, 10);
-
-function modify(lista, id, stock){
-    let new_stock;
-    for(let i = 0; i < lista.length; i++){
-        if(lista[i].codigo == id){
-            console.log(lista[i].stock);
-            new_stock = lista[i].stock+stock;
-            arrayProductos[i].stock;
+        if(tipo=='T'){
+            if(unidad=='c' && conver=='f')
+                return medida*(9/5) + 32;
+            else if(unidad=='f' && conver=='c')
+                return (medida - 32)*(5/9);
+            else if(unidad=='k' && conver=='f')
+                return medida*(9/5) - 459.67;
+            else if(unidad=='f' && conver=='k')
+                return (medida + 459.67)*(5/9);
+            else if(unidad=='k' && conver=='c')
+                return medida - 273.15;
+            else if(unidad=='c' && conver=='k')
+                return medida + 273.15;
+            else
+                return "no se reconoce la unidad o no se puede realizar esa conversion";
 
         }
     }
 }
+
