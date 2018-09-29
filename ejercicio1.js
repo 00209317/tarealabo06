@@ -2,8 +2,13 @@ do {
     var opcion = prompt("Ingrese una opcion:\n 1. Añadir producto\n 2. Modificar Stock \n 3.Registrar venta y modificar Stock \n 4. Mostrar pro,edio de ventas realizadas \n 5. Mostrar productos con stock 0 \n 6 Salir");
     switch (opcion) {
         case "1":
-            var produc = new Producto();
-            produc.addproducto();
+            let codigo = prompt("ingrese codigo del producto");
+            let descrip = prompt("ingrese descripcion del producto");
+            let tipo = prompt("ingrese tipo del producto");
+            let precio_compra = prompt("ingrese precio de compra del producto");
+            let precio_venta = prompt("ingrese precio de venta del producto");
+            let stock = prompt("ingrese stock del producto");
+            addproducto(codigo, descrip, tipo, precio_compra, precio_venta, stock);
             break;
         case "2":
 
@@ -25,37 +30,27 @@ do {
 while (opcion != 6);
 console.log("adios");
 
-class Producto {
-    constructor(){
-        
-    }
-    constructor(codigo, descrip_produc, tipo, precio_compra, precio_venta, stock) {
-        this.codigo = codigo;
-        this.descrip_produc = descrip_produc;
-        this.tipo = tipo;
-        this.precio_compra = precio_compra;
-        this.precio_venta = precio_venta;
-        this.stock = stock;
-    }
+let array = [];
 
-    addproducto() {
-
-    }
-
-    modificarstock() {
-
-    }
-
-    venta_stock() {
-
-    }
-
-    view_promedio() {
-
-    }
-
-    view_producto_none() {
-
-    }
+function addproducto(codigo, descrip, tipo, precio_compra, precio_venta, stock) {
+    array.push({ codigo, descrip, tipo, precio_compra, precio_venta, stock })
 }
+
+function modificarstock() {
+    console.log(arrayProducto[0]);
+}
+
+function venta_stock() {
+
+}
+
+function view_promedio() {
+
+}
+
+function view_producto_none() {
+
+}
+
+
 
