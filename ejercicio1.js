@@ -1,7 +1,7 @@
 let arrayProductos = [];
 let ventas = [];
 do {
-    var opcion = prompt("Ingrese una opcion:\n 1. Añadir producto\n 2. Modificar Stock \n 3.Registrar venta y modificar Stock \n 4. Mostrar promedio de ventas realizadas \n 5. Mostrar productos con stock 0 \n 6 Salir");
+    var opcion = prompt("Ingrese una opcion:\n 1. Añadir producto\n 2. Modificar Stock \n 3.Registrar venta y modificar Stock \n 4. Mostrar promedio de ventas realizadas \n 5. Mostrar productos con stock 0 \n 6. Mostrar Ventas hechas \n 7. Salir");
     switch (opcion) {
         case "1":
             let codigo = prompt("ingrese codigo del producto");
@@ -17,9 +17,9 @@ do {
             modificarStock(id);
             break;
         case "3":
-            let id = prompt("Ingrese el id de producto a modificar");
+            let id_3 = prompt("Ingrese el id de producto a modificar");
             let cant_venta = prompt("Ingrese la cantidad de la venta");
-            venta_stock(id, cant_venta);
+            venta_stock(id_3, cant_venta);
             break;
         case "4":
             view_promedio();
@@ -27,12 +27,15 @@ do {
         case "5":
             view_stock_none();
             break;
+        case "6":
+            view_arrayventas();
+            break;
         default:
-            console.log("ingrese dato correcto");
+            alert("ingrese dato correcto");
             break;
     }
 }
-while (opcion != 6);
+while (opcion != 7);
 alert("ADIOS, QUE TENGA UN LINDO DIA");
 
 function addproducto(codigo, descrip, tipo, precio_compra, precio_venta, stock) {
@@ -49,9 +52,9 @@ function modificarStock(id) {
         }
     });
     if (find)
-        return console.log('Se modifico el stock del porducto seleccionado');
+        return alert('Se modifico el stock del producto seleccionado');
     else
-        return console.log('Nose encontro el producto');
+        return alert('No se encontro el producto');
 
 }
 
@@ -67,7 +70,7 @@ function venta_stock(id, cant_venta) {
     if (find)
         return addventa(id, cant_venta, newStock);
     else
-        return console.log('Nose encontro el producto');
+        return alert('No se encontro el producto');
 }
 
 function view_promedio() {
@@ -90,6 +93,12 @@ function view_stock_none() {
 //Funcion demas, no la pide el ejercicio pero se considera necesaria
 function addventa(codigo, ventas_realizada, ventas_restantes) {
     ventas.push({ codigo, ventas_realizada, ventas_restantes })
+}
+
+function view_arrayventas() {
+    for (let i = 0; i < ventas.length; i++) {
+        console.log(ventas[i]);
+    }
 }
 
 
