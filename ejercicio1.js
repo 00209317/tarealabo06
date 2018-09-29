@@ -1,3 +1,4 @@
+let arrayProductos = [];
 do {
     var opcion = prompt("Ingrese una opcion:\n 1. Añadir producto\n 2. Modificar Stock \n 3.Registrar venta y modificar Stock \n 4. Mostrar pro,edio de ventas realizadas \n 5. Mostrar productos con stock 0 \n 6 Salir");
     switch (opcion) {
@@ -11,7 +12,7 @@ do {
             addproducto(codigo, descrip, tipo, precio_compra, precio_venta, stock);
             break;
         case "2":
-
+            console.log(array[0]);
             break;
         case "3":
 
@@ -30,10 +31,8 @@ do {
 while (opcion != 6);
 console.log("adios");
 
-let array = [];
-
 function addproducto(codigo, descrip, tipo, precio_compra, precio_venta, stock) {
-    array.push({ codigo, descrip, tipo, precio_compra, precio_venta, stock })
+    arrayProductos.push({ codigo, descrip, tipo, precio_compra, precio_venta, stock })
 }
 
 function modificarstock() {
