@@ -14,16 +14,18 @@ do {
             break;
         case "2":
             let id = prompt("Ingrese el id de producto a modificar");
-            modifyStock(id);
+            modificarStock(id);
             break;
         case "3":
-            console.log(arrayProductos[0]);
+            let id = prompt("Ingrese el id de producto a modificar");
+            let cant_venta = prompt("Ingrese la cantidad de la venta");
+            venta_stock(id, cant_venta);
             break;
         case "4":
-
+            view_promedio();
             break;
         case "5":
-
+            view_stock_none();
             break;
         default:
             console.log("ingrese dato correcto");
@@ -37,7 +39,7 @@ function addproducto(codigo, descrip, tipo, precio_compra, precio_venta, stock) 
     arrayProductos.push({ codigo, descrip, tipo, precio_compra, precio_venta, stock })
 }
 
-function modifyStock(id) {
+function modificarStock(id) {
     var newStock = parseInt(prompt('Inserte el nuevo Stock'), 10);
     var find = false;
     arrayProductos.forEach(e => {
@@ -53,36 +55,34 @@ function modifyStock(id) {
 
 }
 
-function venta_stock() {
-    function venta_stock(id, cant_venta) {
-        var newStock = 0;
-        var find = false;
-        arrayProductos.forEach(e => {
-            if (e.codigo == id) {
-                newStock = e.stock - cant_venta;
-                find = true;
-            }
-        });
-        if (find)
-            return addventa(id, cant_venta, newStock);
-        else
-            return console.log('Nose encontro el producto');
-    }
+function venta_stock(id, cant_venta) {
+    var newStock = 0;
+    var find = false;
+    arrayProductos.forEach(e => {
+        if (e.codigo == id) {
+            newStock = e.stock - cant_venta;
+            find = true;
+        }
+    });
+    if (find)
+        return addventa(id, cant_venta, newStock);
+    else
+        return console.log('Nose encontro el producto');
 }
 
 function view_promedio() {
 
 }
 
-function Stock0(){
+function view_stock_none() {
     arrayProductos.forEach(e => {
-        if(e.stock == 0){
-           console.log(e.codigo);
-           console.log(e.descrip);
-           console.log(e.tipo);
-           console.log(e.precio_compra);
-           console.log(e.precio_venta);
-           console.log(e.stock);
+        if (e.stock == 0) {
+            console.log(e.codigo);
+            console.log(e.descrip);
+            console.log(e.tipo);
+            console.log(e.precio_compra);
+            console.log(e.precio_venta);
+            console.log(e.stock);
         }
     });
 }
