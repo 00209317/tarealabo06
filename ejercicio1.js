@@ -1,4 +1,5 @@
 let arrayProductos = [];
+let ventas = [];
 do {
     var opcion = prompt("Ingrese una opcion:\n 1. Añadir producto\n 2. Modificar Stock \n 3.Registrar venta y modificar Stock \n 4. Mostrar promedio de ventas realizadas \n 5. Mostrar productos con stock 0 \n 6 Salir");
     switch (opcion) {
@@ -53,16 +54,42 @@ function modifyStock(id) {
 }
 
 function venta_stock() {
-
+    function venta_stock(id, cant_venta) {
+        var newStock = 0;
+        var find = false;
+        arrayProductos.forEach(e => {
+            if (e.codigo == id) {
+                newStock = e.stock - cant_venta;
+                find = true;
+            }
+        });
+        if (find)
+            return addventa(id, cant_venta, newStock);
+        else
+            return console.log('Nose encontro el producto');
+    }
 }
 
 function view_promedio() {
 
 }
 
-function view_producto_none() {
-
+function Stock0(){
+    arrayProductos.forEach(e => {
+        if(e.stock == 0){
+           console.log(e.codigo);
+           console.log(e.descrip);
+           console.log(e.tipo);
+           console.log(e.precio_compra);
+           console.log(e.precio_venta);
+           console.log(e.stock);
+        }
+    });
 }
 
+//Funcion demas, no la pide el ejercicio pero se considera necesaria
+function addventa(codigo, ventas_realizada, ventas_restantes) {
+    ventas.push({ codigo, ventas_realizada, ventas_restantes })
+}
 
 
