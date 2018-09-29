@@ -8,8 +8,8 @@ do {
             let tipo = prompt("ingrese tipo del producto");
             let precio_compra = prompt("ingrese precio de compra del producto");
             let precio_venta = prompt("ingrese precio de venta del producto");
-            let stock = prompt("ingrese stock del producto");
-            addproducto(codigo, descrip, tipo, precio_compra, precio_venta, stock);
+            //let stock = prompt("ingrese stock del producto");
+            addproducto(codigo, descrip, tipo, precio_compra, precio_venta, stock=0);
             break;
         case "2":
             console.log(array[0]);
@@ -40,7 +40,7 @@ function modificarstock() {
 }
 
 function venta_stock() {
-
+    
 }
 
 function view_promedio() {
