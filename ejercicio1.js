@@ -74,7 +74,9 @@ function venta_stock(id, cant_venta) {
 }
 
 function view_promedio() {
-
+  //En verdad lo siento a 10 minutos pues el tiempo no me alcanzo :( y ya me arde la garganta, me revente un monton 
+  //Me falto esta funcion :( estuve tan cerca de terminarlo
+  //Psdata, saque algo demas que seria las ventas hechas asi que por eso hay punto :D
 }
 
 function view_stock_none() {
